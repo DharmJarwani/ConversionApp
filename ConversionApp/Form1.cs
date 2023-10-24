@@ -74,7 +74,9 @@ namespace ConversionApp
             richTextBox1.Clear();
             richTextBox2.Clear();
             richTextBox3.Clear();
-            //richTextBox4.Clear(); // Base64 - Removed
+            richTextBox4.Clear();
+            richTextBox5.Clear();
+            richTextBox6.Clear();
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -96,21 +98,18 @@ namespace ConversionApp
             }
             else if (IsBase64(inputData))
             {
+                if (string.IsNullOrEmpty(inputData))
+                {
+                    richTextBox5.Clear();
+                    richTextBox6.Clear();
+                }
+                else
+                {
+                    // Base64 input
+                    byte[] byteArray = Convert.FromBase64String(inputData);
+                    PerformConversions(byteArray);
+                }
 
-                // Base64 input
-                byte[] byteArray = Convert.FromBase64String(inputData);
-                PerformConversions(byteArray);
-
-
-                // NEW CODE
-                // Convert the decimal value to a little-endian byte array.
-                int decimalValue = int.Parse(inputData);
-                byte[] littleEndianBytes = BitConverter.GetBytes(decimalValue);
-
-                // Create a string to represent the byte array without reversing it.
-                string byteString = string.Join(", ", littleEndianBytes);
-
-                richTextBox4.Text = byteString; // Byte Array representation for Base64 input
             }
             else
             {
@@ -120,19 +119,28 @@ namespace ConversionApp
 
         private void richTextBox6_TextChanged(object sender, EventArgs e)
         {
-            var data = richTextBox6.Text;
+            string data = richTextBox6.Text;
 
-            uint fileSizeDecimal = Convert.ToUInt32(data);
+            if (string.IsNullOrWhiteSpace(data))
+            {
+                // Clear richTextBox5 and do not show the message
+                richTextBox5.Clear();
+            }
+            else if (uint.TryParse(data, out uint fileSizeDecimal))
+            {
+                byte[] littleEndianBytes = BitConverter.GetBytes(fileSizeDecimal);
 
-            byte[] littleEndianBytes = BitConverter.GetBytes(fileSizeDecimal);
+                string byteString = string.Join(", ", littleEndianBytes);
 
-            // Create a string to represent the byte array without reversing it.
-            string byteString = string.Join(", ", littleEndianBytes);
-
-            richTextBox5.Text = byteString;
-
-
+                richTextBox5.Text = byteString;
+            }
+            else
+            {
+                // Handle the case where the input is not a proper decimal format
+                MessageBox.Show("Please enter a valid decimal value, for example: 12345", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
