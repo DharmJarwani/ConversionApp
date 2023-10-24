@@ -40,51 +40,47 @@
             button2 = new Button();
             label5 = new Label();
             label6 = new Label();
+            richTextBox6 = new RichTextBox();
             SuspendLayout();
             // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(315, 113);
-            richTextBox1.Margin = new Padding(3, 2, 3, 2);
+            richTextBox1.Location = new Point(360, 151);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(1180, 71);
+            richTextBox1.Size = new Size(1348, 93);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // richTextBox2
             // 
-            richTextBox2.Location = new Point(589, 299);
-            richTextBox2.Margin = new Padding(3, 2, 3, 2);
+            richTextBox2.Location = new Point(673, 399);
             richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(906, 48);
+            richTextBox2.Size = new Size(1035, 63);
             richTextBox2.TabIndex = 2;
             richTextBox2.Text = "";
             // 
             // richTextBox3
             // 
-            richTextBox3.Location = new Point(589, 365);
-            richTextBox3.Margin = new Padding(3, 2, 3, 2);
+            richTextBox3.Location = new Point(673, 487);
             richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(906, 49);
+            richTextBox3.Size = new Size(1035, 64);
             richTextBox3.TabIndex = 3;
             richTextBox3.Text = "";
             // 
             // richTextBox4
             // 
-            richTextBox4.Location = new Point(589, 433);
-            richTextBox4.Margin = new Padding(3, 2, 3, 2);
+            richTextBox4.Location = new Point(673, 577);
             richTextBox4.Name = "richTextBox4";
-            richTextBox4.Size = new Size(906, 54);
+            richTextBox4.Size = new Size(1035, 71);
             richTextBox4.TabIndex = 4;
             richTextBox4.Text = "";
             // 
             // richTextBox5
             // 
-            richTextBox5.Location = new Point(589, 501);
-            richTextBox5.Margin = new Padding(3, 2, 3, 2);
+            richTextBox5.Location = new Point(1182, 668);
             richTextBox5.Name = "richTextBox5";
-            richTextBox5.Size = new Size(906, 57);
+            richTextBox5.Size = new Size(526, 75);
             richTextBox5.TabIndex = 5;
             richTextBox5.Text = "";
             // 
@@ -92,9 +88,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(309, 308);
+            label1.Location = new Point(353, 411);
             label1.Name = "label1";
-            label1.Size = new Size(108, 25);
+            label1.Size = new Size(135, 32);
             label1.TabIndex = 6;
             label1.Text = "Byte Data";
             // 
@@ -102,9 +98,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(309, 376);
+            label2.Location = new Point(353, 501);
             label2.Name = "label2";
-            label2.Size = new Size(188, 25);
+            label2.Size = new Size(239, 32);
             label2.TabIndex = 7;
             label2.Text = "Hexadecimal Data";
             // 
@@ -112,9 +108,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(309, 446);
+            label3.Location = new Point(353, 595);
             label3.Name = "label3";
-            label3.Size = new Size(231, 25);
+            label3.Size = new Size(295, 32);
             label3.TabIndex = 8;
             label3.Text = "Base64-Encoded Data";
             // 
@@ -122,20 +118,19 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(309, 515);
+            label4.Location = new Point(609, 693);
             label4.Name = "label4";
-            label4.Size = new Size(86, 25);
+            label4.Size = new Size(553, 32);
             label4.TabIndex = 9;
-            label4.Text = "Base64";
+            label4.Text = "Convert Decimal to Little-Endian Byte Array.";
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.OrangeRed;
-            button2.Location = new Point(829, 218);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(1528, 85);
             button2.Name = "button2";
-            button2.Size = new Size(158, 38);
+            button2.Size = new Size(181, 51);
             button2.TabIndex = 10;
             button2.Text = "Reset";
             button2.UseVisualStyleBackColor = true;
@@ -146,9 +141,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.Chocolate;
-            label5.Location = new Point(741, 38);
+            label5.Location = new Point(847, 51);
             label5.Name = "label5";
-            label5.Size = new Size(364, 25);
+            label5.Size = new Size(441, 31);
             label5.TabIndex = 11;
             label5.Text = "Enter input from these following forms.";
             // 
@@ -157,17 +152,27 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
             label6.ForeColor = Color.LightSeaGreen;
-            label6.Location = new Point(513, 72);
+            label6.Location = new Point(586, 96);
             label6.Name = "label6";
-            label6.Size = new Size(716, 30);
+            label6.Size = new Size(912, 38);
             label6.TabIndex = 12;
             label6.Text = "1. Byte Data / 2. Hexadecimal Data / 3. Base64-Encoded Data / 4. Base64";
             // 
+            // richTextBox6
+            // 
+            richTextBox6.Location = new Point(245, 680);
+            richTextBox6.Name = "richTextBox6";
+            richTextBox6.Size = new Size(347, 77);
+            richTextBox6.TabIndex = 13;
+            richTextBox6.Text = "";
+            richTextBox6.TextChanged += richTextBox6_TextChanged;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1530, 592);
+            ClientSize = new Size(1749, 789);
+            Controls.Add(richTextBox6);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(button2);
@@ -180,7 +185,6 @@
             Controls.Add(richTextBox3);
             Controls.Add(richTextBox2);
             Controls.Add(richTextBox1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -200,5 +204,6 @@
         private Button button2;
         private Label label5;
         private Label label6;
+        private RichTextBox richTextBox6;
     }
 }

@@ -1,3 +1,7 @@
+using System;
+using System.Text;
+using System.Windows.Forms;
+
 namespace ConversionApp
 {
     public partial class Form1 : Form
@@ -10,11 +14,11 @@ namespace ConversionApp
         private void PerformConversions(byte[] byteArray)
         {
             string hexOutput = BitConverter.ToString(byteArray).Replace("-", ""); // Hexadecimal
-            string base64Output = Convert.ToBase64String(byteArray); // Base64
+            //string base64Output = Convert.ToBase64String(byteArray); // Base64 - Removed
 
             richTextBox2.Text = string.Join(", ", byteArray); // Byte Array
             richTextBox3.Text = hexOutput; // Hexadecimal
-            richTextBox4.Text = base64Output; // Base64
+            //richTextBox4.Text = base64Output; // Base64 - Removed
         }
 
         private byte[] ParseByteArray(string input)
@@ -70,8 +74,7 @@ namespace ConversionApp
             richTextBox1.Clear();
             richTextBox2.Clear();
             richTextBox3.Clear();
-            richTextBox4.Clear();
-            richTextBox5.Clear();
+            //richTextBox4.Clear(); // Base64 - Removed
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -103,17 +106,34 @@ namespace ConversionApp
 
                 // NEW CODE
                 // Convert the decimal value to a little-endian byte array.
-                byte[] littleEndianBytes = BitConverter.GetBytes(inputData);
-
+                int decimalValue = int.Parse(inputData);
+                byte[] littleEndianBytes = BitConverter.GetBytes(decimalValue);
 
                 // Create a string to represent the byte array without reversing it.
                 string byteString = string.Join(", ", littleEndianBytes);
 
+                richTextBox4.Text = byteString; // Byte Array representation for Base64 input
             }
             else
             {
                 MessageBox.Show("Invalid input format. Please enter valid data.");
             }
+        }
+
+        private void richTextBox6_TextChanged(object sender, EventArgs e)
+        {
+            var data = richTextBox6.Text;
+
+            uint fileSizeDecimal = Convert.ToUInt32(data);
+
+            byte[] littleEndianBytes = BitConverter.GetBytes(fileSizeDecimal);
+
+            // Create a string to represent the byte array without reversing it.
+            string byteString = string.Join(", ", littleEndianBytes);
+
+            richTextBox5.Text = byteString;
+
+
         }
     }
 }
