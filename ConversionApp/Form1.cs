@@ -14,11 +14,11 @@ namespace ConversionApp
         private void PerformConversions(byte[] byteArray)
         {
             string hexOutput = BitConverter.ToString(byteArray).Replace("-", ""); // Hexadecimal
-            //string base64Output = Convert.ToBase64String(byteArray); // Base64 - Removed
+            string base64Output = Convert.ToBase64String(byteArray); // Base64 -
 
             richTextBox2.Text = string.Join(", ", byteArray); // Byte Array
             richTextBox3.Text = hexOutput; // Hexadecimal
-            //richTextBox4.Text = base64Output; // Base64 - Removed
+            richTextBox4.Text = base64Output; // Base64 - 
         }
 
         private byte[] ParseByteArray(string input)
@@ -96,13 +96,11 @@ namespace ConversionApp
             }
             else if (IsBase64(inputData))
             {
-                /*
-                //TODO old code
 
                 // Base64 input
                 byte[] byteArray = Convert.FromBase64String(inputData);
                 PerformConversions(byteArray);
-                */
+
 
                 // NEW CODE
                 // Convert the decimal value to a little-endian byte array.
@@ -133,6 +131,11 @@ namespace ConversionApp
 
             richTextBox5.Text = byteString;
 
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
         }
     }
